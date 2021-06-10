@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Webpixels">
+    <title>Binary Innovation - Tutorials></title>
+        <!-- Preloader -->
+    <style>
+        @keyframes hidePreloader {
+            0% {
+                width: 100%;
+                height: 100%;
+            }
+
+            100% {
+                width: 0;
+                height: 0;
+            }
+        }
+
+        body>div.preloader {
+            position: fixed;
+            background: white;
+            width: 100%;
+            height: 100%;
+            z-index: 1071;
+            opacity: 0;
+            transition: opacity .5s ease;
+            overflow: hidden;
+            pointer-events: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        body:not(.loaded)>div.preloader {
+            opacity: 1;
+        }
+
+        body:not(.loaded) {
+            overflow: hidden;
+        }
+
+        body.loaded>div.preloader {
+            animation: hidePreloader .5s linear .5s forwards;
+        }
+    </style>
+    <script>
+        window.addEventListener("load", function() {
+            setTimeout(function() {
+                document.querySelector('body').classList.add('loaded');
+            }, 300);
+        });
+    </script>
+    <!-- Favicon -->
+    <link rel="icon" href="assets/img/brand/favicon.png" type="image/png"><!-- Font Awesome -->
+    <link rel="stylesheet" href="../assets/libs/@fortawesome/fontawesome-free/css/all.min.css">
+    <!-- Quick CSS -->
+    <link rel="stylesheet" href="../assets/css/quick-website.css">
+    <!-- Docs CSS - used only for demo -->
+    <link rel="stylesheet" href="../docs/assets/css/docs.css">
+</head>
+
+<body class="docs">
+    <!-- Nav -->
+    <header class="header" id="header-main">
+        <!-- Main navbar -->
+        <nav class="navbar navbar-main navbar-expand-lg fixed-top navbar-shadow navbar-light bg-white border-bottom" id="navbar-main">
+            <div class="container-fluid justify-content-between">
+                <!-- User's navbar -->
+                <div class="navbar-user d-lg-none">
+                    <ul class="navbar-nav flex-row align-items-center">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link nav-link-icon sidenav-toggler" data-action="sidenav-pin" data-target="#sidenav-main"><i data-feather="menu"></i></a>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Navbar brand -->
+                <a class="navbar-brand" href="../index.html">
+                    <img alt="Image placeholder" src="../assets/img/brand/dark.svg" id="navbar-logo">
+                    <sup class="text-muted text-xs text-uppercase">Docs</sup>
+                </a>
+                <!-- Live preview -->
+                <ul class="navbar-nav flex-row align-items-center d-lg-none">
+                    <li class="nav-item">
+                        <a href="../index.html" class="nav-link nav-link-icon"><i data-feather="eye"></i></a>
+                    </li>
+                </ul>
+                <!-- Navbar nav -->
+                <div class="collapse navbar-collapse" id="navbar-main-collapse">
+                    <!-- Right menu -->
+                    <ul class="navbar-nav align-items-center mx-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#.html">Django</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="devops/intro.html">DevOps</a>
+                        </li>
+                        <!--
+                        <li class="nav-item">
+                            <a class="nav-link" href="#.html">Django</a>
+                        </li>
+                        -->
+                    </ul>
+                </div>
+                <a href="index.html" class="btn btn-sm btn-primary ml-4 btn-icon d-none d-lg-inline-flex">
+                    <span class="btn-inner--icon"><i data-feather="chevron-left"></i></span>
+                    <span class="btn-inner--text">Back to Home</span>
+                </a>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container-fluid container-docs">
+        <!-- Sidenav -->
+        <nav class="sidenav navbar navbar-vertical navbar-expand-xs navbar-light bg-white" id="sidenav-main">
+            <div class="scrollbar-inner px-4">
+                <!-- Navigation -->
+                <div class="docs-sidebar pt-6 pt-lg-7">
+                    <h6 class="mt-4">Django Series</h6>
+                    <ul class="nav flex-column">
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Intro</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" class="nav-link">Build tools</a>
+                        </li>
+                    </ul>
+                    <h6 class="mt-4">DevOps Tutorials</h6>
+
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a href="#" class="nav-link">Virtual Environment</a> </li>
+                        <li class="nav-item"><a href="devops/gunicorn.html" class="nav-link active">Gunicorn</a> </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+
+        <!-- Main content -->
+        <div class="main-content row position-relative pb-5">
+            <div class="col-xl-9 docs-content pb-5">
+                <!-- Docs title -->
+                <div class="docs-title">
+                    <h1>Gunicorn</h1>
+                    <p class="lead mb-0">A python HTTP WSGI Server for UNIX. It allows you to run any python application concurrently by running multiple python processes(multi-threaded).
+                        <br>
+                        It the most prefered server working with frameworks like Django and Flask etc. in production.
+                    </p>
+                </div>
+                
+                <!-- Docs content -->
+                <h3 id="Installation">Installation</h3>
+                <p>We assume that our project is been setup in a <a href="#">vitual environment</a> so lets install gunicorn in our project virtual environment.</p>
+                <div class="docs-example">
+                    <figure class="highlight"><pre><code class="language-plaintext" data-lang="plaintext">$pip install gunicorn</code></pre>
+                    </figure>
+                </div>
+
+                <br>
+
+                <h3 id="Testing Gunicorn">Testing Gunicorn</h3>
+                <p>After gunicorn has been successfully installed in our project virtual environment we will have to test it and confirm if it can server our project.</p>
+                <p>NB: The test was referenced with a <a href="#">Django</a> project.</p>
+                <div class="docs-example">
+                    <figure class="highlight"><pre><code class="language-plaintext" data-lang="plaintext">$ gunicorn --bind 0.0.0.0:8000 [project].wsgi</code></pre>
+                    </figure>
+                </div>
+                <p>We passed a Gunicorn a module by specifying the relative directory path to the Django's <code class="highlighter-rouge">wsgi</code> file.</p>
+                <p>You can test it by visiting the URL <a href="#">http://your-server-ip:8000</a>.</p>
+                <p>If the test is successfully, gunicorn will be running on the same interface[port] that the django development server was runnin on.</p>
+                <p>Once the test is successful, we can stop Gunicorn by pressing <code class="highlighter-grey">CTRL-C</code> in terminal window.</p>
+                
+                <br>
+                <h3 id="deactivate-VE">Decativate Virtual Environment</h3>
+                <p>Once our testing is complete we have to deactivate our virtual environment to configure and setup our UNIX machine to run Gunicorn</p>
+                <div class="docs-example">
+                    <figure class="highlight"><pre><code class="language-plaintext" data-lang="plaintext">deactivate</code></pre></figure>
+                </div>
+
+                <br><br>
+
+                <!--<h2 id="configure PC">Configure UNIX System</h2>-->
+                <h3 id="gunicorn-service-files">Creating systemd Socket file for Gunicorn</h3>
+                <p>Since the testing have proven we can run our project with Gunicorn, we have implement a more robust way of starting and stoping the application server outside of the V.E</p>
+                <p>A Gunicorn socket will be created at boot and will listen for connections. When a connection is establish, systemd will automatically start Gunicorn process to handle the process.</p>
+                <p>Lets start by creating and opening systemd socket file for Gunicorn with sudo privileges</p>
+                <div class="docs-example">
+                    <figure class="highlight"><pre><code class="language-plaintext" data-lang="plaintext">$sudo nano /etc/systemd/system/gunicorn.socket</code></pre></figure>
+                </div>
+                <p>We are going to create 3 section in the file:</p>
+                <span class="h6 text-dark mb-0">/etc/systemd/system/gunicorn.socket</span>
+                <div class="card bg-dark-secondary border-0 rounded-lg" style="max-width: 100%;">
+                    <div class="card-body px-5">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <p class="text-dark opacity-8">
+                                    [Unit]<br>
+                                    Description=gunicorn socket
+                                    <br><br>
+
+                                    [Socket]
+                                    ListenStream=/run/gunicorn.sock
+                                    <br><br>
+
+                                    [Install]<br>
+                                    WantedBy=sockets.target
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <p>[Unit] section describes the socket</p>
+                <p>[Socket] section defines the socket location</p>
+                <p>[Install] section makes sure the socket is created at the right time</p>
+                <p>Now Save and close the file with the <a href="#">nano</a> command.</p>
+
+            </div>
+
+            <div class="col-xl-3 docs-sidebar d-none d-xl-block">
+                <div class="toc-sidebar pl-4 mt-lg-8 border-left">
+                    <div class="scrollbar-inner">
+                        <h6 class="mb-3">Summary</h6>
+                        <ul class="section-nav">
+                            <li class="toc-entry toc-h2"><a href="#requirements">Requirements</a>
+                                <ul>
+                                    <li class="toc-entry toc-h3"><a href="#nodejs">Node.js</a></li>
+                                    <li class="toc-entry toc-h3"><a href="#gulp-cli">Gulp CLI</a></li>
+                                </ul>
+                            </li>
+                            <li class="toc-entry toc-h2"><a href="#package-management">Package management</a></li>
+                            <li class="toc-entry toc-h2"><a href="#gulp">Gulp</a>
+                                <ul>
+                                    <li class="toc-entry toc-h3"><a href="#commands">Commands</a></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Footer -->
+    <!-- Scripts -->
+    <!-- Core JS  -->
+    <script src="../assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="../assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/libs/svg-injector/dist/svg-injector.min.js"></script>
+    <script src="../assets/libs/feather-icons/dist/feather.min.js"></script>
+    <!-- Docs JS -->
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.2.0/highlight.min.js"></script>
+    <script src="../assets/libs/clipboard/dist/clipboard.min.js"></script>
+    <!-- Quick JS -->
+    <script src="../assets/js/quick-website.js"></script>
+    
+    <!-- Feather Icons -->
+    <script>
+        feather.replace({
+            'width': '1em',
+            'height': '1em'
+        })
+    </script>
+</body>
+
+</html>
