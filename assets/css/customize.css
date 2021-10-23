@@ -2,3 +2,21 @@
     height: 400px;
     width: 200px;
 }
+
+.text-white{
+    color: #fff;
+}
+
+.text-underline{
+    text-underline: auto;
+}
+
+.logo-text{
+    color: black;
+    font-size: smaller;
+    margin-left: 35px;
+}
+
+.margin_top-10{
+    margin-top: -10px
+}
