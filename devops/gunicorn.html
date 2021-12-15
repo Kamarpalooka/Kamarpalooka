@@ -98,16 +98,14 @@
                             <a class="nav-link" href="#.html">Django</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="devops/intro.html">DevOps</a>
+                            <a class="nav-link" href="../devops/intro.html">DevOps</a>
                         </li>
-                        <!--
                         <li class="nav-item">
-                            <a class="nav-link" href="#.html">Django</a>
+                            <a class="nav-link" href="#.html">Front-End</a>
                         </li>
-                        -->
                     </ul>
                 </div>
-                <a href="index.html" class="btn btn-sm btn-primary ml-4 btn-icon d-none d-lg-inline-flex">
+                <a href="../index.html" class="btn btn-sm btn-primary ml-4 btn-icon d-none d-lg-inline-flex">
                     <span class="btn-inner--icon"><i data-feather="chevron-left"></i></span>
                     <span class="btn-inner--text">Back to Home</span>
                 </a>
@@ -121,7 +119,7 @@
             <div class="scrollbar-inner px-4">
                 <!-- Navigation -->
                 <div class="docs-sidebar pt-6 pt-lg-7">
-                    <h6 class="mt-4">Django Series</h6>
+                    <h6 class="mt-4">Django</h6>
                     <ul class="nav flex-column">
                         <li class="nav-item">
                             <a href="#" class="nav-link">Intro</a>
@@ -130,11 +128,16 @@
                             <a href="#" class="nav-link">Build tools</a>
                         </li>
                     </ul>
-                    <h6 class="mt-4">DevOps Tutorials</h6>
-
+                    <hr>
+                    <h6 class="mt-4">DevOps</h6>
                     <ul class="nav flex-column">
                         <li class="nav-item"><a href="#" class="nav-link">Virtual Environment</a> </li>
-                        <li class="nav-item"><a href="devops/gunicorn.html" class="nav-link active">Gunicorn</a> </li>
+                        <li class="nav-item"><a href="gunicorn.html" class="nav-link active">Gunicorn</a> </li>
+                    </ul>
+                    <hr>
+                    <h6 class="mt-4">Front End</h6>
+                    <ul class="nav flex-column">
+                        <li class="nav-item"><a href="../frontend/react-redux.html" class="nav-link">React Redux</a> </li>
                     </ul>
                 </div>
             </div>
@@ -145,7 +148,7 @@
             <div class="col-xl-9 docs-content pb-5">
                 <!-- Docs title -->
                 <div class="docs-title">
-                    <h1>Gunicorn</h1>
+                    <h1 id="Introduction">Gunicorn</h1>
                     <p class="lead mb-0">A python HTTP WSGI Server for UNIX. It allows you to run any python application concurrently by running multiple python processes(multi-threaded).
                         <br>
                         It the most prefered server working with frameworks like Django and Flask etc. in production.
@@ -172,7 +175,7 @@
                 <p>If the test is successfully, gunicorn will be running on the same interface[port] that the django development server was runnin on.</p>
                 <p>Once the test is successful, we can stop Gunicorn by pressing <code class="highlighter-grey">CTRL-C</code> in terminal window.</p>
                 
-                <h3 id="deactivate-VE">Decativate Virtual Environment</h3>
+                <h3 id="Deactivate-VE">Deactivate Virtual Environment</h3>
                 <p>Once our testing is complete we have to deactivate our virtual environment to configure and setup our UNIX machine to run Gunicorn</p>
                 <div class="docs-example">
                     <figure class="highlight"><pre><code class="language-plaintext text-white" data-lang="plaintext">deactivate</code></pre></figure>
@@ -180,7 +183,7 @@
 
                 <!--<h2 id="configure PC">Configure UNIX System</h2>-->
                 <h3 id="gunicorn-service-files">Creating systemd Socket file for Gunicorn</h3>
-                <p>Since the testing have proven we can run our project with Gunicorn, we have implement a more robust way of starting and stoping the application server outside of the V.E</p>
+                <p>Since the testing have proven we can run our project with Gunicorn, we have to implement a more robust way of starting and stoping the application server outside of the V.E</p>
                 <p>A Gunicorn socket will be created at boot and will listen for connections. When a connection is establish, systemd will automatically start Gunicorn process to handle the process.</p>
                 <p>Lets start by creating and opening systemd socket file for Gunicorn with sudo privileges</p>
                 <div class="docs-example">
@@ -212,7 +215,6 @@
                 <p>[Socket] section defines the socket location</p>
                 <p>[Install] section makes sure the socket is created at the right time</p>
                 <p>Now Save and close the file with the <a href="#">nano</a> command.</p>
-
             </div>
 
             <div class="col-xl-3 docs-sidebar d-none d-xl-block">
@@ -220,24 +222,26 @@
                     <div class="scrollbar-inner">
                         <h6 class="mb-3">Summary</h6>
                         <ul class="section-nav">
-                            <li class="toc-entry toc-h2"><a href="#requirements">Requirements</a>
+                            <li class="toc-entry toc-h2"><a href="#Introduction">Introduction</a>
+                                <!--
                                 <ul>
                                     <li class="toc-entry toc-h3"><a href="#nodejs">Node.js</a></li>
                                     <li class="toc-entry toc-h3"><a href="#gulp-cli">Gulp CLI</a></li>
                                 </ul>
+                                -->
                             </li>
-                            <li class="toc-entry toc-h2"><a href="#package-management">Package management</a></li>
-                            <li class="toc-entry toc-h2"><a href="#gulp">Gulp</a>
-                                <ul>
-                                    <li class="toc-entry toc-h3"><a href="#commands">Commands</a></li>
-                                </ul>
-                            </li>
+                            <li class="toc-entry toc-h2"><a href="#Installation">Installing Gunicorn</a></li>
+                            <li class="toc-entry toc-h2"><a href="#Testing Gunicorn">Testing Gunicorn</a></li>
+                            <li class="toc-entry toc-h2"><a href="#Deactivate-VE">Deactivate Virtual Environment</a></li>
+                            <li class="toc-entry toc-h2"><a href="#gunicorn-service-files">Gunicorn Service through Socket</a></li>
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+
+
     <!-- Footer -->
     <!-- Scripts -->
     <!-- Core JS  -->
